@@ -1,11 +1,11 @@
-from flask import Flask
+from flask import Flask, render_template
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templateFiles', static_folder='staticFiles')
 
 @app.route('/')
+def index():
+    return render_template('index.html')
 
-def welcome():
-    return "Hi a`m volodia "
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
