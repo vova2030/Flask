@@ -4,10 +4,16 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>{{ title }}</title>     
+    <title>{% block title %}{{ title }}{% endblock title %}</title>     
 </head>
 
 <body>
-    <h1>Welcome to {{ title }}!</h1>
+    <header>
+        {% include "_navigation.html" %}
+    </header>
+    {% block content %}
+        <h1>Вітаю на {{ title }}!</h1>
+        <h2>Тут є мої друзі</h2>
+    {% endblock content %}    
 </body>
 </html>

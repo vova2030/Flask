@@ -4,24 +4,24 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template("base.html", title="Jinja and Flask")
+    return render_template("base.html", title="Моя сторінка")
 
   
-max_score = 100   
-test_name = "Python Challenge"  
+max_score = 10  
+test_name = "Мої друзі"  
 students = [  
-    {"name": "Любомир", "score": 100},
-    {"name": "Юра", "score": 87}, 
-    {"name": "Володя", "score": 92},   
-    {"name": "Віталій", "score": 40},
-    {"name": "Денис", "score": 75},   
+    {"name": "Любомир", "score": 10},
+    {"name": "Юра", "score": 8}, 
+    {"name": "Володя", "score": 9},   
+    {"name": "Віталій", "score": 4},
+    {"name": "Денис", "score": 7},   
 ] 
 
 
 @app.route("/results")
 def results():
     context = {
-        "title": "Results",
+        "title": "найкращі!!",
         "students": students,
         "test_name": test_name,
         "max_score": max_score,

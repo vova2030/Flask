@@ -1,5 +1,7 @@
 {# templates/results.html #}
 
+{% extends "base.html"%}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,14 +10,19 @@
 </head>
  
 <body>
+    {% block content%}    
     <h1>{{ test_name }} {{ title }}</h1>
     <ul>
-    {% for student in students %}
+    {# ... #}    
+    {% for student in students|sort(attribute="name")
+    |sort(attribute="score", reverse=true) %}
         <li>
-            {% if student.score > 80 %}🙂{% else %}☹{% endif %}
+            {% if student.score > 7 %}🙂{% else %}☹{% endif %}
             <em>{{ student.name }}:</em> {{ student.score }}/{{ max_score }}
         </li>
+    {# ... #}      
     {% endfor %}
     </ul>
+    {% endblock content%}
 </body>    
 </html>
